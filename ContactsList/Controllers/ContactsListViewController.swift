@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ContactsListViewController: UIViewController {
+class ContactsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let contactList = Person.getContactList()
+    private var contactList = Person.getContactList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,31 +20,39 @@ class ContactsListViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.rowHeight = 70
-        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        tableView.setEditing(editing, animated: true)
+    }
     
 }
 
-extension ContactsListViewController: UITableViewDelegate {
+extension ContactsListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let contactDetailVC = segue.destination as? ContactDetailViewController
-              else {return}
+        else {return}
         guard let contact = sender as? Person else { return }
-     
+        
         contactDetailVC.contact = contact
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let contact = contactList[indexPath.row]
         
         performSegue(withIdentifier: "showContactDetails", sender: contact)
-        
     }
-    
 }
 
-extension ContactsListViewController: UITableViewDataSource {
+
+extension ContactsListViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contactList.count
     }
@@ -59,11 +67,22 @@ extension ContactsListViewController: UITableViewDataSource {
         content.secondaryText = contact.number
         content.image = UIImage(named: contact.image)
         content.imageProperties.maximumSize = CGSize(width: 70, height: 70)
-
+        
         cell.contentConfiguration = content
-
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
     
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        false
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let currentContact = contactList.remove(at: sourceIndexPath.row)
+        contactList.insert(currentContact, at: destinationIndexPath.row)
+    }
 }

@@ -160,6 +160,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JQk-Oc-VdY" id="u16-Pg-Cuk"/>
+                                    <outlet property="delegate" destination="JQk-Oc-VdY" id="IVc-qw-yT1"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Oxo-vP-GU1"/>
