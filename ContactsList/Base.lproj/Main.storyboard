@@ -80,29 +80,32 @@
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArO-G8-Zx0">
-                                <rect key="frame" x="174.5" y="669.5" width="65" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-D8-5vt">
-                                <rect key="frame" x="179.5" y="621" width="55" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Arw-Vi-0SC">
+                                <rect key="frame" x="174.5" y="573" width="65" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-D8-5vt">
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArO-G8-Zx0">
+                                        <rect key="frame" x="0.0" y="48" width="65" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cJt-Qz-dt0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cJt-Qz-dt0" firstAttribute="trailing" secondItem="24B-ax-YK3" secondAttribute="trailing" constant="32" id="5bs-Lg-Mvl"/>
-                            <constraint firstItem="24B-ax-YK3" firstAttribute="top" secondItem="cJt-Qz-dt0" secondAttribute="top" constant="70" id="6Hl-kQ-aqT"/>
-                            <constraint firstItem="ArO-G8-Zx0" firstAttribute="top" secondItem="Whw-D8-5vt" secondAttribute="bottom" constant="24.5" id="AD9-48-U89"/>
-                            <constraint firstItem="Whw-D8-5vt" firstAttribute="top" secondItem="24B-ax-YK3" secondAttribute="bottom" constant="98" id="LUM-0h-5Ld"/>
+                            <constraint firstItem="24B-ax-YK3" firstAttribute="top" secondItem="cJt-Qz-dt0" secondAttribute="top" constant="70" id="F8S-ZI-tRb"/>
                             <constraint firstItem="24B-ax-YK3" firstAttribute="leading" secondItem="cJt-Qz-dt0" secondAttribute="leading" constant="32" id="N2y-XF-ZFX"/>
-                            <constraint firstItem="ArO-G8-Zx0" firstAttribute="centerX" secondItem="YK2-kn-Kzn" secondAttribute="centerX" id="S0H-0y-aue"/>
-                            <constraint firstItem="Whw-D8-5vt" firstAttribute="centerX" secondItem="YK2-kn-Kzn" secondAttribute="centerX" id="Uig-yX-Il6"/>
+                            <constraint firstItem="Arw-Vi-0SC" firstAttribute="top" secondItem="24B-ax-YK3" secondAttribute="bottom" constant="50" id="X3T-QS-H2J"/>
+                            <constraint firstItem="Arw-Vi-0SC" firstAttribute="centerX" secondItem="YK2-kn-Kzn" secondAttribute="centerX" id="bfs-KL-gaV"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" id="GrF-Gz-FRA">
